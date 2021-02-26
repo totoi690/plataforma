@@ -1,0 +1,18 @@
+.error {
+    padding-top: 1em;
+    padding-bottom: .8em;
+}
+
+.errorGif {
+    width: 10em;
+    padding-bottom: 1em;
+}
+
+.divData {
+    font-size: .7em;
+    text-align: left;
+    margin-right: var(--cardMargin);
+    margin-left: var(--cardMargin);
+}
+
+.right {float: right}

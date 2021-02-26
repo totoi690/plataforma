@@ -8,8 +8,20 @@
     "start": "next start"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^1.1.0",
+    "@vercel/node": "^1.9.0",
+    "axios": "^0.21.1",
+    "mongodb": "^3.6.4",
     "next": "10.0.7",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-dropdown-select": "^4.7.3",
+    "react-katex": "^2.0.2",
+    "react-transition-group": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.6.8",
+    "@types/react": "^17.0.2",
+    "sass": "^1.32.8"
   }
 }

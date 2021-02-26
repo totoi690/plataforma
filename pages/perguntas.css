@@ -1,0 +1,345 @@
+.flashcards {
+  width: 1.3em;
+  margin: 0;
+  transform: translateY(.3em) translateX(-.2em);
+}
+
+.justcolor {
+  background-color: var(--color9);
+  margin-left: -.44vw;
+  margin-right: -.44vw;
+}
+
+.justcolor1 {
+  background-color: var(--color6);
+
+}
+
+.justcolor2 {
+  background-color: var(--color4);
+
+}
+
+.totalDiv {
+  position: -webkit-sticky;
+  position: sticky;
+  padding: .25em;
+  background-color: var(--color6);
+  color: var(--color1);
+  z-index: 1;
+  padding: .3em;
+  margin-left: -.3em;
+  margin-right: -.3em;
+}
+
+.totalSpan {
+  font-style: italic;
+  font-weight: 600
+}
+
+.res {
+  display: flex;
+  flex-direction: column;
+}
+
+.per {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color4);
+}
+
+.card,
+.card-animated {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+  margin-left: var(--cardMargin);
+  margin-right: var(--cardMargin);
+  margin-bottom: 1em;
+  border: 2px solid black;
+  transition: transform 0.5s, background-color .4s;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: var(--color9);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.margin{margin-bottom: 2em}
+
+.card-animated {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+@keyframes example {
+  33% {
+    box-shadow: .12em .12em var(--color4);
+  }
+
+  66% {
+    box-shadow: .12em .12em var(--color4), .24em .24em var(--color5);
+  }
+
+  100% {
+    box-shadow: .12em .12em var(--color4), .24em .24em var(--color5), .36em .36em var(--color6);
+  }
+}
+
+@keyframes example1 {
+  33% {
+    box-shadow: -.12em .12em var(--color4);
+  }
+
+  66% {
+    box-shadow: -.12em .12em var(--color4), -.24em .24em var(--color5);
+  }
+
+  100% {
+    box-shadow: -.12em .12em var(--color4), -.24em .24em var(--color5), -.36em .36em var(--color6);
+  }
+}
+
+.card:hover {
+  animation-timing-function: ease-in-out;
+  animation-name: example;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.card-animated:hover {
+  animation-timing-function: ease-in-out;
+  animation-name: example1;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.isFlipped {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  padding-left: 2em;
+  padding-right: 2em;
+
+}
+
+.pontos {
+  position: absolute;
+  top: .4em;
+  right: 0;
+  font-size: 70%;
+  height: 70%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.obs {  
+  position: absolute;
+  bottom: 1.7em;
+  left: 0;
+  font-size: 70%;
+  height: 70%;
+  font-style: italic;
+  font-weight: 300
+}
+
+.check {
+  position: absolute;
+  top: .3em;
+  left: -.8%;
+  font-size: 70%;
+  height: 70%;
+}
+
+.nestedQuestions {
+  margin-left: calc(var(--cardMargin) + 2em);
+  margin-right: calc(var(--cardMargin) + .1em);
+}
+
+.pointcontainer, .obscontainer {
+  position: relative
+}
+
+.imagemResposta,
+.imagemPergunta {
+  border: .09em solid var(--color4);
+  max-width: 60%;
+  max-height: 60%;
+}
+
+.envolta {position: relative;}
+
+.topico {
+  margin-left: var(--cardMargin);
+  margin-right: var(--cardMargin);
+  margin-top: .4em;
+  margin-bottom: .4em;
+  border: 0;
+  font-family: 'Lobster', cursive;
+  color: var(--color7);
+  font-size: 1.9em;
+  text-shadow: .15vw .15vw .01vw var(--color1);
+  background: linear-gradient(to top, var(--color5) 23%, transparent 23%);
+  -webkit-text-stroke: .5px var(--color8);
+  cursor: pointer;
+
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.topico:hover {
+  color: var(--color1);
+  font-size: calc(1.7vw + 25px);
+  text-shadow: .15vw .15vw .01vw var(--color7);
+  background: linear-gradient(to top, var(--color5) 23%, transparent 23%);
+  -webkit-text-stroke: 1px var(--color8);
+  transition: all 150ms ease-in-out;
+}
+
+@keyframes trocarcartao {
+  50% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+  }
+}
+
+.cont {
+  position: relative;
+  height: 100%;
+  margin-bottom: .1em;
+}
+
+.verticalLine {
+  position: absolute;
+  top: -1em;
+  height: calc(100% + 1em);
+  left: 24.5%;
+  border-left: .12em solid var(--color4);
+  z-index: -10;
+  float: left;
+  padding-bottom: -1em;
+}
+
+.nestedQuestionsDiv {
+  position: relative;
+  max-height: max-content;
+}
+
+.toggleNestedDiv, .description {
+  position: relative;
+  margin-left: var(--cardMargin);
+  margin-right: calc(var(--cardMargin) - 2em);
+}
+
+.description {
+  margin-top: -.5em;
+  margin-bottom: .2em;
+  font-size: 95%;
+  font-style:italic;
+  font-weight: 300;
+  color: var(--color4);
+}
+
+.toggleNested {
+  position: absolute;
+  float: left;
+  border: none;
+  border-right: .2em solid var(--color11);
+  height: 100%;
+  size: 100%;
+  overflow: hidden;
+  margin-left: calc(var(--cardMargin) - 3em);
+  margin-right: var(--cardMargin);
+  margin-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.under {
+  z-index: -2;
+}
+
+.toggleNested:hover {
+  border-right: .3em solid var(--color6);
+  transition: border-right 0.2s;
+}
+
+.cardHolderDiv {
+  position: relative;
+  max-height: max-content;
+}
+
+.cartao-appear {
+  opacity: 0;
+}
+
+.cartao-appear.cartao-appear-active {
+  opacity: 1;
+  transition: opacity 700ms ease-in-out;
+}
+
+.cartao-exit {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+}
+
+.cartao-exit.cartao-exit-active {
+  animation: trocarcartao 700ms
+}
+
+.cartao-exit-done {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+}
+
+.cartao-enter {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+}
+
+.cartao-enter.cartao-enter-active {
+  animation: trocarcartao 700ms
+}
+
+.cartao-enter-done {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+}
+
+
+.topico-appear,
+.topico-enter {
+  opacity: 0;
+  transform: scale(.1);
+  -webkit-transform: scale(.1);
+}
+
+.topico-appear.topico-appear-active,
+.topico-enter.topico-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  transition: opacity 600ms, transform 250ms ease-in-out;
+}
