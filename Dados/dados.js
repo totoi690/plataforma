@@ -1940,7 +1940,7 @@ let Dados = {
                       obs: true
                     },
                     {
-                      destaque: '- **OBS**: **CULTURA**',
+                      destaque: '- **CULTURA**',
                       resposta: '- uso do número zero, calendários lunar e solar, politeísta',
                       obs: true
                     },
