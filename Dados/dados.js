@@ -1772,6 +1772,239 @@ let Dados = {
                         - <span class='bold'>Cartismo:</span> reunião de assinaturas na “Carta do Povo” e entrega ao parlamento inglês, exigindo voto secreto e universal`
                     }]
                 }]
+            },
+            revolucaofrancesa: {
+              nome: "Revolução Francesa",
+              id: 4,
+              gif: "https://pa1.narvii.com/6973/9d2d39c4c087bc4c77b1b756b72a0738546b16f4r1-356-200_hq.gif",
+              perguntas: [{
+                topico: ' PRÉ-REVOLUÇÃO',
+                perguntas: [
+                  {
+                    pergunta: '- Qual é **contexto** pré-revolucionário? Quais **ideias** permeavam a sociedade?',
+                    resposta: '- Crise financeira → alto preço dos alimentos - Ideais iluministas - Concentração de renda e de direitos'
+                  }
+                ]
+              },{
+                topico: ' CONVOCAÇÃO DOS ESTADOS GERAIS',
+                perguntas: [
+                  {
+                    pergunta: '- **OBS**: Por que foi convocada a **Assembleia dos Notáveis**?',
+                    resposta: '- Proposta de aumentar os impostos para todos, incluindo nobreza e clero',
+                    obs: true
+                  },
+                  {
+                    pergunta: '- O que aconteceu na convocação da **Assembleia dos Estados Gerais**?',
+                    resposta: '- Impasse votação por cabeça ou por Estado',
+                    nestedQuestions: [
+                      {
+                        pergunta: '- Por que o **Terceiro Estado** se reuniu?',
+                        resposta: '- Para criar uma Constituição'
+                      },
+                      {
+                        pergunta: '- **OBS**: O que se organizou nesse período?',
+                        resposta: '- Uma guarda nacional burguesa',
+                        obs: true
+                      }
+                    ]
+                  }
+                ]
+              },{
+                topico: ' ASSEMBLEIA CONSTITUINTE',
+                perguntas: [
+                  {
+                    pergunta: '- Qual é o **marco inicial** da Revolução Francesa?',
+                    resposta: '- Queda da Bastilha em 1789'
+                  },
+                  {
+                    pergunta: '- O que foi o **Grande Medo**?',
+                    resposta: '- Invasão de terras dos nobres pelos camponeses',
+                  },{
+                    pergunta: '- Por que houve **aproximação** entre burguesia e nobreza?',
+                    resposta: "- Receio da popularização da Revolução",
+                    description: "Defina as medidas tomadas para **acalmar os camponeses**",
+                    nestedQuestions: [
+                      {
+                          destaque: '**DECLARAÇÃO DOS DIREITOS DO HOMEM E DO CIDADÃO**',
+                          resposta: '- Garantiu a igualdade jurídica, propriedade privada e liberdades política e econômica' 
+                      }, {
+                        destaque: '**CONSTITUIÇÃO CIVIL DO CLERO**',
+                        resposta: '- Faz com que eles se tornem funcionários do Estado e toma posse dos bens da Igreja'
+                      }, {
+                        pergunta: '- **OBS**: O que foi a **Declaração dos Direitos da Mulher**?',
+                        obs: true,
+                        resposta: "- Tentativa de igualdade de gênero → fracassou"
+                      }
+                    ]
+                  }
+                ]
+              }, {
+                topico: ' MONARQUIA CONSTITUCIONAL',
+                perguntas: [
+                  {
+                    pergunta: '- O que marca o **início da Monarquia Constituicional**? Cite **características** implementadas',
+                    resposta: '- Conclusão da Constituição com limitação do poder do Rei, voto censitário e igualdade jurídica'
+                  },
+                  {
+                    pergunta: '- Qual era a **divisão** que existia na Assembleia?',
+                    resposta: '- **GIRONDINOS** → "direita" → conservadores - **JACOBINOS** → "esquerda" → radicais'
+                  },
+                  {
+                    pergunta: '- O que foi a **Declaração de Pillnitz**? Por que isso foi feito?',
+                    resposta: '- Formação de um exército (Áustria + Prússia) para combater a revolução - Medo dela se alastar para outros países',
+                    nestedQuestions: [
+                      {
+                        pergunta: '- Como esse **exército foi detido**?',
+                        resposta: '- União da população francesa na **Comuna Insurreicional de Paris**'
+                      }
+                    ]
+                  }
+                ]
+              },{
+                topico: ' REPÚBLICA JACOBINA',
+                perguntas: [
+                  {
+                    pergunta: '- **OBS**: Que **instituições** foram criadas nesse período?',
+                    resposta: '- Criação do Comitê de Salvação Pública e do Tribunal Revolucionário',
+                    obs: true
+                  },
+                  {
+                    pergunta: '- O que aconteceu com o **rei**?',
+                    resposta: '- Condenação de Luís XVI à guilhotina'
+                  },
+                  {
+                    pergunta: '- O que a **Nova Constituição** criada nesse período previa?',
+                    resposta: '- Voto universal masculino, ensino público gratuito e convocação obrigatória para guerra',
+                    nestedQuestions: [
+                      {
+                        destaque: '- **LEI DO MÁXIMO**',
+                        resposta: '- Congelamento dos preços'
+                      }
+                    ]
+                  },
+                  {
+                    pergunta: '- O que foi o **Período do Terror**? Quem o liderou e que lei foi instaurada na época?',
+                    resposta: '- O período do Terror foi um tempo de muitas execuções (de qualquer um que era contra a Revolução) - Liderada por Robespierre',
+                    nestedQuestions: [
+                      {
+                        destaque: '- **Lei dos Suspeitos**',
+                        resposta: '- Qualquer pessoa suspeita de ir contra a revolução era guilhotinada'
+                      }
+                    ]
+                  },
+                  {
+                    pergunta: '- **Como e por que** **acabou**?',
+                    resposta: '- Perda de apoio popular',
+                    nestedQuestions: [
+                      {
+                        pergunta: '- **Reação Termidoriana**',
+                        resposta: '- Golpe com a ascenção dos girondinos'
+                      }
+                    ]
+                  }
+                ]
+              },{
+                topico: ' DIRETÓRIO',
+                perguntas: [
+                  {
+                    pergunta: '- O que aconteceu no começo?',
+                    resposta: '- Criação de uma nova Constituição que anulava medidas jacobinas'
+                  },
+                  {
+                    pergunta: '- OBS: Cite dois golpes fracassados do período',
+                    resposta: '- **MONARQUISTAS** - **CONSPIRAÇÃO DOS IGUAIS** → jacobinos',
+                    obs: true
+                  },
+                  {
+                    pergunta: '- Como **Napoleão** chega ao poder?',
+                    resposta: '- Através do golpe de **18 do Brumário**, criando uma nova forma de governo → CONSULADO'
+                  }
+                ]
+              } ]
+            },
+            civilizacoesprecambrianas: {
+              nome: "Civilizações pré-cambrianas",
+              id: 5,
+              gif: "https://media1.tenor.com/images/5e5d5457f673e57a38d6c07f9c665d96/tenor.gif?itemid=4576836",
+              perguntas: [
+                {
+                  topico: ' MAIAS',
+                  perguntas: [
+                    {
+                      destaque: '- **ECONOMIA**',
+                      resposta: '- Agricultura irrigada (milho, cacau e batata) e queimadas com desgaste do solo'
+                    },
+                    {
+                      destaque: '- **OBS**: **SOCIEDADE**',
+                      resposta: '- elite, funcionários estatais e agricultores.',
+                      obs: true
+                    },
+                    {
+                      destaque: '- **OBS**: **CULTURA**',
+                      resposta: '- uso do número zero, calendários lunar e solar, politeísta',
+                      obs: true
+                    },
+                    {
+                      destaque: '- **DESAPARECIMENTO**',
+                      resposta: '- conflitos e guerras entre cidades e/ou desgaste do solo'
+                    },
+                    {
+                      pergunta: '- OBS: os Maias formaram império?',
+                      resposta: '- não, eles organizavam-se em cidades-estados',
+                      obs: true
+                    }
+                  ]
+                },
+                {
+                  topico: ' ASTECAS',
+                  perguntas: [
+                    {
+                      destaque: '- **OBS**: **FORMAÇÃO**',
+                      resposta: '- foram do norte ao sul dominando outros povos e absorvendo suas culturas. ↳ Cobrança pesada de tributos, de pessoas para sacrifícios e pessoas para participação em construções estatais',
+                      obs: true
+                    },
+                    {
+                      destaque: '- **ECONOMIA**',
+                      resposta: '- agricultura em **chinampas** (ilhas artificiais)'
+                    },
+                    {
+                      destaque: '- **OBS**: **SOCIEDADE**',
+                      resposta: '- imperador e família, sacerdotes e chefes, comerciantes, camponeses, artesãos e escravos',
+                      obs: true
+                    },
+                    {
+                      destaque: '- **CULTURA**',
+                      resposta: '- politeísmo com sacrifícios humanos, escrita pictográfica, acúmulo de ouro de prata, escolas, calendário cíclico.'
+                    },
+                    {
+                      destaque: '- **DESAPARECIMENTO**',
+                      resposta: '- conquista pelos espanhóis (Hernan Cortez)'
+                    }
+                  ]
+                },
+                {
+                  topico: ' INCAS',
+                  perguntas: [
+                    {
+                      destaque: '- **ECONOMIA**',
+                      resposta: '- agricultura (milho e batata) em terraços, canais de irrigação, divisões entre terras da comunidade, dos deuses e estatais'
+                    },
+                    {
+                      destaque: '- **OBS**:**SOCIEDADE**',
+                      resposta: '- Imperador, sacerdotes, lideres locais, militares, artesãos, comerciantes, camponeses e escravos',
+                      obs: true
+                    },
+                    {
+                      destaque: '- **CULTURA**',
+                      resposta: '- politeísmo com sacrifícios humanos, correios (chasquis), estradas, nós em quipus (contabilidade), **não tinham escrita**'
+                    },
+                    {
+                      destaque: '- **DESAPARECIMENTO**',
+                      resposta: '- conquista pelos espanhóis (Francisco Pizarro), disputa pelo trono'
+                    }
+                  ]
+                }
+              ]
             }
         }
     },

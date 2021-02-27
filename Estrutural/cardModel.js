@@ -19,7 +19,7 @@ class CardModel extends React.Component {
       }
 
       save = () => {
-        axios.post("/api/salvar", { mensagem: "salve galera" })
+        //axios.post("/api/salvar", { mensagem: "salve galera" })
     }
 
     render() {

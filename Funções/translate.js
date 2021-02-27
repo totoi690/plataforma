@@ -108,7 +108,7 @@ let Translate = (word, type) => {
         return colocarBold(tirarList(colocarMaiuscula(colocarMath(tirarObs(word)))))
     }
     if (type === "d") {
-        return tirarList(tirarBold(word.toUpperCase()))
+        return tirarList(tirarBold(tirarObs(word.toUpperCase())))
     }
     if (type === "t") {
         return colocarMaiuscula(word.toLowerCase())
