@@ -1935,7 +1935,7 @@ let Dados = {
                       resposta: '- Agricultura irrigada (milho, cacau e batata) e queimadas com desgaste do solo'
                     },
                     {
-                      destaque: '- **OBS**: **SOCIEDADE**',
+                      destaque: '- **SOCIEDADE**',
                       resposta: '- elite, funcionários estatais e agricultores.',
                       obs: true
                     },
