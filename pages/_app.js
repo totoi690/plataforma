@@ -1,5 +1,4 @@
 import "../App.css"
-import "../Index.css"
 import "./hoje.css"
 import "./menu.css"
 import "./perguntas.css"
