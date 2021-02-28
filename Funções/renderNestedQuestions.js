@@ -19,6 +19,8 @@ class RenderNestedQuestions extends React.Component {
                     length={this.props.nestedQuestions.length}
                     nested={true}
                     nestedQuestions={this.props.nestedQuestions}
+                    user={this.props.user}
+                    usuario={this.props.usuario}
                 />
                 </div>
                 )})

@@ -1,7 +1,25 @@
 import React from 'react'
 
 class Total extends React.Component {
-    render() {
+    constructor () {
+        super()
+        this.state = {loading: true, finished: false, pontos: 0}
+        this.atualizarPontos = this.atualizarPontos.bind(this)
+    }
+
+    componentDidMount() {
+        this.atualizarPontos()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.load !== this.props.load || 
+           prevProps.materia.nome !== this.props.materia.nome || 
+           prevProps.tema.nome !== this.props.tema.nome) {
+            this.atualizarPontos()
+        }
+    }
+
+    atualizarPontos () {
         let pontos = this.props.tema.perguntas
         let total = []
         pontos.map((element) => {
@@ -24,32 +42,13 @@ class Total extends React.Component {
             else {return true}
         })
 
-        /*if (!localStorage.getItem('localSave')) {
-            localStorage.clear()
-            let save = {}; let object = {};
-            object[this.props.selecttema] = arrayPontos
-            save[this.props.selectmateria] = object;
-            localStorage.setItem('localSave', JSON.stringify(save))
-        } else {
-            let saveLocal = JSON.parse(localStorage.getItem('localSave'))
-            if (saveLocal[this.props.selectmateria] === undefined) {
-                let object = {};
-                object[this.props.selecttema] = arrayPontos
-                saveLocal[this.props.selectmateria] = object;
-                localStorage.setItem('localSave', JSON.stringify(saveLocal))
-            };
-            if (saveLocal[this.props.selectmateria][this.props.selecttema] === undefined) {
-                let object = [this.props.selecttema, arrayPontos];
-                saveLocal[this.props.selectmateria][this.props.selecttema] = object
-                localStorage.setItem('localSave', JSON.stringify(saveLocal))
-            } else {
-                
-            }
-        }*/
+        this.setState({pontos: arraySoma, finished: finished})
+    }
 
+    render() {
         return(<div>
-            <div className="totalDiv"><div>{this.props.materia.nome} - {this.props.tema.nome}{finished ? " - ✅" : null}</div>
-            <span className="totalSpan">Total de pontos: </span>{arraySoma}</div></div>)
+            <div className="totalDiv"><div>{this.props.materia.nome} - {this.props.tema.nome}{this.state.finished ? " - ✅" : null}</div>
+            <span className="totalSpan">Total de pontos: </span>{this.state.pontos}</div></div>)
     }
 }
 

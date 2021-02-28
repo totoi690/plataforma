@@ -5,20 +5,27 @@ import Footer from "../Estrutural/footer"
 import RenderCards from "../Funções/renderCards"
 import Forms from "../Estrutural/forms"
 import Total from "../Estrutural/total"
-import Salvar from "../Funções/salvar"
 import ScrollButton from "../Estrutural/scrollbutton"
 import { CSSTransition } from "react-transition-group"
 import Navegation from "../Estrutural/navegation"
 import { useRouter } from 'next/router'
+import { useUser } from "@auth0/nextjs-auth0";
+import Load from "../Funções/LoadingData/load"
+import {useWarnIfUnsavedChanges} from '../Funções/useWarnIfUnsavedChanges'
 
 const Perguntas = () => {
+
   const [selectTema, setselectTema] = useState("sintaxe")
   const [selectMateria, setselectMateria] = useState("gramatica")
   const [paraFrente, setparaFrente] = useState([])
   const [windowScroll, setwindowScroll] = useState("")
   const [animate, setanimate] = useState(true)
   const [animatecards, setanimatecards] = useState(true)
-
+  const [loaded, setloaded] = useState(true)
+  const [load, setload] = useState(false)
+  
+  const { user } = useUser()
+  
       function handler(prop1, prop2) {
         switch (prop1) {
           case "selectTema": setselectTema(prop2); break
@@ -46,19 +53,29 @@ const Perguntas = () => {
           setState({selectMateria: materia, selectTema: tema})
         }
       }
-    
+
+      let usuario
+
       useEffect(() => {
+        if (user) {
+        async function alo () {
+          usuario = await Load(user.email)
+          if (usuario) {
+          setloaded(false)
+          }
+        }
+        alo()
+        }
         selectRandom()
-        Salvar(selectTema)
-      })
+      }, [user])
     
         const materia = Dados[selectMateria].temas[selectTema]
         const temas = Object.entries(Dados[selectMateria].temas)
         const materias = Object.entries(Dados);
         return (
 <>
-          <div className="App" onClick={() => setwindowScroll(window.scrollY)}>
-            <Header/>
+          <div className="App">
+            <Header bool={true}/>
             <Navegation/>
 
             <div className="justcolor">
@@ -71,7 +88,31 @@ const Perguntas = () => {
             </CSSTransition>
             </div>
 
+            {loaded ? 
+            <div className="justcolor7">
+            <CSSTransition
+                in={animate}
+                 appear={true}
+                 timeout={500}
+                 classNames={"fade"}>
+            <div>Estamos atualizando seus dados, aguarde um momento</div>
+            </CSSTransition>
+            </div>
+            : null}
 
+          {!user ? 
+            <div className="justcolor7">
+            <CSSTransition
+                in={animate}
+                 appear={true}
+                 timeout={500}
+                 classNames={"fade"}>
+            <div>Você não está autenticado, suas alterações NÃO SERÃO SALVAS!</div>
+            </CSSTransition>
+            </div>
+            : null}
+
+            {!loaded ?
             <div className="totalDiv">
             <div className="justcolor1">
             <CSSTransition
@@ -79,12 +120,13 @@ const Perguntas = () => {
                  appear={true}
                  timeout={500}
                  classNames={"fade"}>
-            <Total tema={materia} materia={Dados[selectMateria]} selecttema={selectTema} selectmateria={selectMateria}/>
+            <Total load={load} tema={materia} materia={Dados[selectMateria]}/>
             </CSSTransition>
             </div>
-            </div>
+            </div> : null}
 
-            <div className="justcolor">
+            {!loaded ?
+            <div className="justcolor"  onClick={() => setload(!load)}>
               <CSSTransition
                 in={animatecards === true}
                  appear={true}
@@ -92,11 +134,10 @@ const Perguntas = () => {
                  classNames={"cartao"}>
             <div className="cardDiv">
             <hr></hr>
-            {/*materia.gif !== undefined ? <div className="gifDiv"><img className="gif" src={materia.gif} alt="gif"></img><hr></hr></div> : null*/}
-            <RenderCards handler={handler} tema={materia}/>
+            <RenderCards handler={handler} user={user} tema={materia}/>
             </div>
             </CSSTransition>
-            </div>
+            </div> : null}
 
             
             <ScrollButton materia={materia}/>

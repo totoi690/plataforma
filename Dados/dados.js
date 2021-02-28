@@ -2005,6 +2005,86 @@ let Dados = {
                   ]
                 }
               ]
+            },
+            unificacoestardias: {
+              nome: "Unificações tardias",
+              id: 6,
+              gif: "https://news.crunchbase.com/wp-content/uploads/2018/07/germany.gif",
+              perguntas: [
+                {
+                  topico: ' Unificação Alemã',
+                  perguntas: [
+                    {
+                      pergunta: '- Quem foi o principal **personagem**?',
+                      resposta: '- Otto Von Bismarck'
+                    },
+                    {
+                      pergunta: '- Qual seu **caráter** comparado à italiana?',
+                      resposta: '- Conservador'
+                    },
+                    {
+                      pergunta: '- Quais foram as **três guerras** para unificar a Alemanha?',
+                      resposta: '',
+                      description: "Diga **contra quem** foi, quem **ganhou** e quais suas **consequências**",
+                      nestedQuestions: [
+                        {
+                          destaque: '- ***GUERRA DOS DUCADOS***',
+                          resposta: '- Contra DINAMARCA - Vitória da Prússia com apoio da Áustria'
+                        },
+                        {
+                          destaque: '- ***GUERRA DAS SETE SEMANAS***',
+                          resposta: '- Contra Áustria - Qual acordo foi tratado com a **França**? - Acordo para que ela não interferisse na guerra'
+                        },
+                        {
+                          destaque: '- ***GUERRA FRANCO-PRUSSIANA***',
+                          resposta: '- Contra a França - Derrubada de Napoleão III e instauração da **Comuna de Paris**'
+                        }, {
+                          pergunta: "O que foi a ***Comuna de Paris***?",
+                          resposta: "Movimento operário socialista que durou pouco",
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  topico: ' Unificação Italiana',
+                  perguntas: [
+                    {
+                      pergunta: '- Quem foi o principal **personagem**?',
+                      resposta: '- Giuseppe Garibaldi'
+                    },
+                    {
+                      pergunta: '- **OBS**: Qual foi a **divergencia** inicial?',
+                      resposta: '- Escolha entre modelo republicano ou monárquico',
+                      obs: true
+                    },
+                    {
+                      pergunta: '- Qual foi a **primeira conquista**? Obteve **apoio** de que países?',
+                      resposta: '- **Veneza** → apoio prussiano e francês'
+                    },
+                    {
+                      pergunta: '- Qual foi a posição **papal**?',
+                      resposta: '- Oposição de Pio IX, que ainda contava com apoio francês',
+                      nestedQuestions: [
+                        {
+                          pergunta: '- Qual foi a **consequência** da **Guerra Franco-Prussiana** para a Itália?',
+                          resposta: '- Perda de apoio francês pelo papa (oportunidade para a anexação de Roma)'
+                        }
+                      ]
+                    },
+                    {
+                      pergunta: '- O que foi a ***Questão Romana***?',
+                      resposta: '- Não-reconhecimento da unificação italiana pela Igreja',
+                      nestedQuestions: [
+                        {
+                          pergunta: '- **Quando** e **por quem** foi **resolvida**?',
+                          resposta: '- Com o ***Tratado de Latrão*** de Mussolini'
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
         }
     },

@@ -40,8 +40,8 @@ class RenderCards extends React.Component {
         this.props.handler("paraFrente", this.state.paraFrente)
       };
 
-      mudarstat = (i) => {
-          
+      mudarstat = (i, e) => {
+        e.preventDefault()
         let itemsInit = this.state.card[i]
         let items = this.state.card.map(() => {
             return(false)
@@ -65,7 +65,7 @@ class RenderCards extends React.Component {
                 return(
                     <div key={index}>
                     {element.topico !== undefined ? 
-                    <div className="topico" onClick={() => { this.mudarstat(index) }}> {Translate(element.topico, "t")} </div> 
+                    <div className="topico" onClick={(e) => { this.mudarstat(index, e) }}> {Translate(element.topico, "t")} </div> 
                     : null}
                     
                     {this.state.card[index] === true && element.topico !== undefined ?    
@@ -75,14 +75,14 @@ class RenderCards extends React.Component {
                         timeout={600}
                         classNames={"topico"}>                         
                     <div className="envolta">
-                    <RenderTopico element={element} index={index} tema={this.props.tema} handler={this.props.handler}/>
+                    <RenderTopico user={this.props.user} element={element} index={index} tema={this.props.tema} handler={this.props.handler}/>
                     </div> 
                         </CSSTransition>
                     : null}
                     
                     { element.topico === undefined || element.topico === "" ?                     
                     <div className="envolta">
-                        <RenderTopico element={element} index={index} tema={this.props.tema} handler={this.props.handler}/>
+                        <RenderTopico user={this.props.user} element={element} index={index} tema={this.props.tema} handler={this.props.handler}/>
                     </div> 
                     : null}
 

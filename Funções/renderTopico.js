@@ -9,8 +9,6 @@ class RenderTopico extends React.Component {
         this.onUpdateItem = this.onUpdateItem.bind(this)
     }
 
-
-
       componentDidMount() {
         let newArray = Array(this.props.tema.perguntas.length).fill(true)
         this.setState({paraFrente: newArray, temaAtual: this.props.tema.nome})
@@ -40,11 +38,13 @@ class RenderTopico extends React.Component {
                 return(
                     <CardModel
                         key={ind}
-                        handler={this.onUpdateItem} 
+                        handler={this.onUpdateItem}
+                        handler1={this.props.handler}
                         tema={this.props.tema} 
                         index={this.props.tema.perguntas[this.props.index].perguntas.indexOf(element1)}
                         object={element1}
                         nested={false}
+                        user={this.props.user}
                     />
                     )})
         )

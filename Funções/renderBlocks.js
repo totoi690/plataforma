@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Dados from "../Dados/dados"
 import { useRouter } from 'next/router'
 
@@ -6,11 +6,13 @@ const RenderBlocks = (props) => {
     let [redirect, setRedirect] = useState(null)
     let [materiaP, setMateria] = useState(null)
     let [temaP, setTema] = useState(null)
+    const router = useRouter()
 
+    useEffect(() => {
         if (redirect) {
-            const router = useRouter()
-            router.push({ pathname: redirect, query: { materiaP: materiaP, temaP: temaP}})
-          }
+        router.push({ pathname: redirect, query: { materiaP: materiaP, temaP: temaP}})
+        }
+    })
 
           if(props.search !== undefined && props.search[0] !== undefined){
             let materia = props.search[0].materiaNome

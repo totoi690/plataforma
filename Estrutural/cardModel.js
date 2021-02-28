@@ -4,23 +4,20 @@ import 'katex/dist/katex.min.css';
 import { BlockMath } from 'react-katex';
 import { CSSTransition } from "react-transition-group"
 import Translate from "../Funções/translate"
-import axios from "axios"
+
 
 class CardModel extends React.Component {
     constructor() {
         super()
         this.state = {frente: true, fade: false, toggle: false}
         this.handler = this.handler.bind(this)
-        this.save = this.save.bind(this)
+
     }
 
     handler(prop1, prop2) {
         this.setState({[prop1]: prop2})
       }
 
-      save = () => {
-        //axios.post("/api/salvar", { mensagem: "salve galera" })
-    }
 
     render() {
         const nested = this.props.nested
@@ -43,13 +40,16 @@ class CardModel extends React.Component {
                 return undefined } else { 
                     return (object.cor)
                 } }
+        
+        const prevD = (e) => {
+            e.preventDefault()
+        }
 
 
         let funcao = (pontos) => {            
             object.pontos === undefined ? object.pontos = pontos : object.pontos = object.pontos + pontos
             object.cor = mudarCor(pontos)
             object.data = newDate()
-            this.save()
             
             this.setState({
                 cor: mudarCor(pontos)
@@ -77,10 +77,10 @@ class CardModel extends React.Component {
         }
 
         return(<div>
-                <div className={ nested ? "nestedQuestionsDiv": "cardHolderDiv"}>
+            <div className={ nested ? "nestedQuestionsDiv": "cardHolderDiv"}>
 
             { !nested &&((object.nestedQuestions !== undefined  && object.pontos !== 0 && object.pontos !== undefined) || (object.nestedQuestions !== undefined && (object.resposta === undefined || object.resposta === "")))? 
-            <div className="toggleNested" onClick={() => {this.setState((prevState) => {return({toggle: !prevState.toggle})})}}>
+            <div className="toggleNested" onClick={(e) => {prevD(e); this.setState((prevState) => {return({toggle: !prevState.toggle})})}}>
             </div> : null}
 
                 {this.props.toggle || !nested ?
@@ -92,8 +92,8 @@ class CardModel extends React.Component {
                         classNames={"fade"}>
 
                     <div className={this.state.fade ? `card ${ nested ? "nestedQuestions" : null}` : `card-animated ${ nested ? "nestedQuestions" : null}`} style={arePoints ? {backgroundColor: "#" + corselecionada()} : null} 
-                    onClick={ nested ? () => {this.setState(prevState => {return {frente: !prevState.frente, fade: !prevState.fade}})} : 
-                    (object.math !== undefined || (object.resposta !== "" && object.resposta !== undefined) || this.props.imagemResposta !== undefined) ? () => {this.setState(prevState => {return {frente: !prevState.frente, fade: !prevState.fade}})} : () => {this.setState((prevState) => {return({toggle: !prevState.toggle})})}}>
+                    onClick={ nested ? (e) => {prevD(e); this.setState(prevState => {return {frente: !prevState.frente, fade: !prevState.fade}})} : 
+                    (object.math !== undefined || (object.resposta !== "" && object.resposta !== undefined) || this.props.imagemResposta !== undefined) ? (e) => {prevD(e); this.setState(prevState => {return {frente: !prevState.frente, fade: !prevState.fade}})} : () => {this.setState((prevState) => {return({toggle: !prevState.toggle})})}}>
                     {this.state.frente ?
                         <div>
                         <div className="pointcontainer, isFlipped">
@@ -102,11 +102,11 @@ class CardModel extends React.Component {
                         </div>
             
                         <div className="isFlipped">
-                            <p>
+                            <div>
                             <b className="per">{ object.pergunta !== undefined ? "Pergunta:": object.destaque !== undefined ? Translate(object.destaque, "d") : null}</b>
                             <span className="res"><span dangerouslySetInnerHTML={{__html: Translate(object.pergunta, "p")}}></span></span>
                             {object.imagemPergunta !== undefined ? <p className="imagemPerguntaDiv"><img className="imagemPergunta" alt="imagem pergunta" src={object.imagemPergunta}></img></p> : null}
-                            </p>
+                            </div>
                         </div>
 
                         { object.obs ?
@@ -116,15 +116,16 @@ class CardModel extends React.Component {
                         </div> : 
             
                         <div className={this.state.fade ? "" : 'isFlipped'}>
-                            <p>
+                            <div>
                             <b className="per">Resposta: </b> 
                             <span className="res"><span dangerouslySetInnerHTML={{__html: Translate(object.resposta, "r")}}></span></span>
                             {object.math !== undefined ? <p className="math"><BlockMath math={String(object.math)}/></p> : null}
                             {object.imagemResposta !== undefined ? <p className="imagemRespostaDiv"><img className="imagemResposta" alt="imagem resposta" src={object.imagemResposta}></img></p> : null}
-                            </p> 
+                            </div> 
             
-                        <p>
-                            <button onClick={() => funcao(3)}>Acertei fácil!</button> <button onClick={() => funcao(2)}>Acertei, mas difícil!</button> <button onClick={() => funcao(1)}>Errei!</button></p>
+                        <div className="btnDiv">
+                            <button onClick={(e) => {prevD(e); funcao(3)}}>Acertei fácil!</button> <button onClick={(e) => {prevD(e); funcao(2)}}>Acertei, mas difícil!</button> <button onClick={(e) => {prevD(e); funcao(1)}}>Errei!</button>
+                        </div>
                         </div>          
                         }
                 </div>
@@ -136,7 +137,7 @@ class CardModel extends React.Component {
      {!nested && this.state.toggle && object.nestedQuestions !== undefined  && ((object.pontos !== 0 && object.pontos !== undefined) || (object.resposta === undefined || object.resposta === "")) ? 
         <div className="cont">
             <div className={ "verticalLine"}></div>
-            {object.description !== undefined ? <div className="description">{object.description}</div> : null}
+            {object.description !== undefined ? <div className="description">{Translate(object.description, "desc")}</div> : null}
             <RenderNestedQuestions 
             handler={this.props.handler}
             changehandler={this.handler}
@@ -144,6 +145,8 @@ class CardModel extends React.Component {
             index={this.props.index}
             toggle={this.state.toggle}
             nestedQuestions={object.nestedQuestions}
+            user={this.props.user}
+            usuario={this.props.usuario}
             />
         </div>
         : null}

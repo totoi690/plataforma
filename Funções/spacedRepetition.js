@@ -128,7 +128,8 @@ class SpacedRepetition extends React.Component {
                                 tema={Dados[materia].temas[tema].perguntas[index]} 
                                 index={Dados[materia].temas[tema].perguntas[index].perguntas.indexOf(el.object)}
                                 object={el.object}
-                                nested={false}                      
+                                nested={false}
+                                user={this.props.user}                   
                             />
                         </div>
                     )

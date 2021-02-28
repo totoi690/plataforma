@@ -113,6 +113,9 @@ let Translate = (word, type) => {
     if (type === "t") {
         return colocarMaiuscula(word.toLowerCase())
     }
+    if (type === "desc") {
+        return colocarMaiuscula(tirarBold(tirarObs(word)))
+    }
 } else return ""
 }
 
