@@ -88,7 +88,7 @@ const Perguntas = () => {
             </CSSTransition>
             </div>
 
-            {loaded ? 
+            {loaded && user ? 
             <div className="justcolor7">
             <CSSTransition
                 in={animate}
@@ -112,7 +112,7 @@ const Perguntas = () => {
             </div>
             : null}
 
-            {!loaded ?
+            {!loaded || !user ?
             <div className="totalDiv">
             <div className="justcolor1">
             <CSSTransition
@@ -125,7 +125,7 @@ const Perguntas = () => {
             </div>
             </div> : null}
 
-            {!loaded ?
+            {!loaded || !user ?
             <div className="justcolor"  onClick={() => setload(!load)}>
               <CSSTransition
                 in={animatecards === true}
